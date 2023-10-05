@@ -31,11 +31,11 @@ import Metodos_SQL.Metodos_sql;
 import javax.swing.UIManager;
 import javax.swing.border.MatteBorder;
 import javax.swing.JButton;
+import javax.swing.border.LineBorder;
 
 public class Login extends JFrame {
 
     private JPanel contentPane;
-    private JLabel lblInicioDeSesin;
     private JTextField txtUsuario;
     private JPasswordField txtContraseña;
     private JCheckBox chkMostrarContrasenia;
@@ -61,36 +61,23 @@ public class Login extends JFrame {
     public Login() {
         setBackground(new Color(105, 105, 105));
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setBounds(100, 100, 801, 597);
+        setBounds(100, 100, 911, 597);
         contentPane = new JPanel();
         contentPane.setBackground(Color.DARK_GRAY);
-        contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+        contentPane.setBorder(new TitledBorder(new LineBorder(new Color(128, 128, 128), 2, true), "", TitledBorder.LEADING, TitledBorder.TOP, null, Color.GRAY));
         contentPane.setLayout(null); 
         setContentPane(contentPane);
-        
-        lblInicioDeSesin = new JLabel("Hola, soy un JLabel");
-        lblInicioDeSesin.setForeground(Color.WHITE);
-        lblInicioDeSesin.setFont(new Font("Tahoma", Font.PLAIN, 16));
-        lblInicioDeSesin.setBounds(333, 129, 112, 30); 
-        contentPane.add(lblInicioDeSesin); 
-
-      
-        lblInicioDeSesin.setText("Inicio de Sesión");
-
-     
-        lblInicioDeSesin.setBackground(Color.DARK_GRAY);
-        lblInicioDeSesin.setOpaque(true); 
         
         JLabel lblNewLabel = new JLabel("USUARIO");
         lblNewLabel.setForeground(Color.WHITE);
         lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 12));
-        lblNewLabel.setBounds(139, 203, 66, 14);
+        lblNewLabel.setBounds(166, 252, 66, 14);
         contentPane.add(lblNewLabel);
         
         JLabel lblNewLabel_1 = new JLabel("CONTRASEÑA");
         lblNewLabel_1.setForeground(Color.WHITE);
         lblNewLabel_1.setFont(new Font("Tahoma", Font.PLAIN, 12));
-        lblNewLabel_1.setBounds(140, 276, 77, 14);
+        lblNewLabel_1.setBounds(166, 332, 77, 14);
         contentPane.add(lblNewLabel_1);
         
     
@@ -99,7 +86,7 @@ public class Login extends JFrame {
         txtUsuario.setForeground(Color.WHITE);
         txtUsuario.setCaretColor(Color.WHITE);
         txtUsuario.setBackground(Color.DARK_GRAY);
-        txtUsuario.setBounds(140, 228, 512, 20);
+        txtUsuario.setBounds(166, 277, 606, 20);
         contentPane.add(txtUsuario);
         txtUsuario.setColumns(10);
         
@@ -110,7 +97,7 @@ public class Login extends JFrame {
         txtContraseña.setForeground(Color.WHITE);
         txtContraseña.setBackground(Color.DARK_GRAY);
         txtContraseña.setBorder(new MatteBorder(0, 0, 2, 0, (Color) Color.WHITE));
-        txtContraseña.setBounds(140, 301, 512, 20);
+        txtContraseña.setBounds(166, 357, 606, 20);
         contentPane.add(txtContraseña);
         
         chkMostrarContrasenia = new JCheckBox("Mostrar Contraseña");
@@ -128,7 +115,7 @@ public class Login extends JFrame {
         });
         chkMostrarContrasenia.setForeground(Color.WHITE);
         chkMostrarContrasenia.setBackground(Color.DARK_GRAY);
-        chkMostrarContrasenia.setBounds(516, 328, 187, 23);
+        chkMostrarContrasenia.setBounds(585, 384, 187, 23);
         contentPane.add(chkMostrarContrasenia);
         
         Button button = new Button("Registarse");
@@ -142,7 +129,7 @@ public class Login extends JFrame {
         });
         button.setForeground(Color.WHITE);
         button.setBackground(new Color(241, 57, 83));
-        button.setBounds(450, 426, 118, 33);
+        button.setBounds(585, 463, 157, 41);
         contentPane.add(button);
         
         
@@ -180,7 +167,7 @@ public class Login extends JFrame {
         });
         button1.setForeground(Color.WHITE);
         button1.setBackground(new Color(241, 57, 83));
-        button1.setBounds(191, 429, 118, 30);
+        button1.setBounds(185, 463, 157, 41);
         contentPane.add(button1);
         
         lbl_close = new JLabel("X");
@@ -192,17 +179,8 @@ public class Login extends JFrame {
         });
         lbl_close.setForeground(new Color(241,57,83));
         lbl_close.setFont(new Font("Tahoma", Font.PLAIN, 20));
-        lbl_close.setBounds(769, 11, 46, 14);
+        lbl_close.setBounds(879, 11, 46, 14);
         contentPane.add(lbl_close);
-        
-        JSeparator separator = new JSeparator();
-        separator.setForeground(Color.GRAY);
-        separator.setBounds(128, 144, 181, 2);
-        contentPane.add(separator);
-        
-        JSeparator separator_1 = new JSeparator();
-        separator_1.setBounds(471, 144, 181, 2);
-        contentPane.add(separator_1);
         
         JLabel lblNewLabel_3 = new JLabel("");
         
@@ -225,9 +203,15 @@ public class Login extends JFrame {
 		        Login.this.setLocation(x - xx, y - xy);  
         	}
         });
-        lblNewLabel_3.setIcon(new ImageIcon(Login.class.getResource("/sistema/images/User icon 2.png")));
-        lblNewLabel_3.setBounds(322, 11, 128, 107);
+        lblNewLabel_3.setIcon(new ImageIcon(Login.class.getResource("/sistema/images/systemusers_104569.png")));
+        lblNewLabel_3.setBounds(344, -15, 256, 271);
         contentPane.add(lblNewLabel_3);
+        
+        JPanel panel = new JPanel();
+        panel.setBorder(new LineBorder(Color.GRAY, 2, true));
+        panel.setBackground(Color.DARK_GRAY);
+        panel.setBounds(118, 197, 703, 284);
+        contentPane.add(panel);
         setForeground(new Color(241, 57, 83));
         
         

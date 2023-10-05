@@ -7,7 +7,7 @@ import java.sql.SQLException;
 public class ConexionBD {
 	public static String url ="jdbc:mysql://localhost/controlsys";
 	public static String usuario = "root";
-	public static String contraseña = "4969503";
+	public static String contraseña = "T0NGA1M37456789";
 	public static String clase = "com.mysql.jdbc.Driver";
 	
 	public static Connection conectar() {
