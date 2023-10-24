@@ -155,6 +155,8 @@ public class Login extends JFrame {
 			            String busqueda_nombre = metodos.buscarNombre(nombreUsuario);
 			            JOptionPane.showMessageDialog(null, "Bienvenido(a)\n" + busqueda_nombre);
 			            Dashboard frame = new Dashboard();
+			             frame.setUndecorated(true);
+		                 frame.setVisible(true);
 			            JLabel lblNombre = new JLabel(busqueda_nombre);
 			            frame.setVisible(true);
 			            dispose();
