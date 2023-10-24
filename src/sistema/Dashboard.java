@@ -111,19 +111,11 @@ public class Dashboard extends JFrame {
         panel_inventario.setBounds(10, 247, 137, 30);
         contentPane.add(panel_inventario);
         
-        JLabel lblNewLabel_3 = new JLabel("INVENTARIO");
-        lblNewLabel_3.setForeground(Color.WHITE);
-        panel_inventario.add(lblNewLabel_3);
-        
         JPanel panel_salidas = new JPanel();
         panel_salidas.setBorder(new LineBorder(new Color(128, 128, 128), 1, true));
         panel_salidas.setBackground(Color.DARK_GRAY);
         panel_salidas.setBounds(10, 276, 137, 30);
         contentPane.add(panel_salidas);
-        
-        JLabel lblNewLabel_4 = new JLabel("SALIDAS");
-        lblNewLabel_4.setForeground(Color.WHITE);
-        panel_salidas.add(lblNewLabel_4);
         
         JPanel panelMainContent = new JPanel();
         panelMainContent.setBorder(new LineBorder(new Color(128, 128, 128), 1, true));
@@ -150,7 +142,7 @@ public class Dashboard extends JFrame {
         
         JLabel lblNewLabel_6 = new JLabel("New label");
         lblNewLabel_6.setIcon(new ImageIcon(Dashboard.class.getResource("/sistema/images/User icon 2.png")));
-        lblNewLabel_6.setBounds(10, 52, 127, 100);
+        lblNewLabel_6.setBounds(10, 52, 137, 100);
         contentPane.add(lblNewLabel_6);
         
         JPanel panel_3 = new JPanel();
