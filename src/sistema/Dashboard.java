@@ -45,7 +45,7 @@ public class Dashboard extends JFrame {
     	setIconImage(Toolkit.getDefaultToolkit().getImage(Dashboard.class.getResource("/sistema/images/teemo_icon_by_bobbelebien_db0cqmg.png")));
         setBackground(new Color(105, 105, 105));
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setBounds(100, 100, 838, 462);
+        setBounds(100, 100, 838, 452);
 
         contentPane = new JPanel();
         contentPane.setBackground(Color.BLACK);
@@ -54,7 +54,7 @@ public class Dashboard extends JFrame {
         setContentPane(contentPane);
         
         panelProductos = new PanelProductos();
-        panelProductos.setBounds(0, 0, 608, 369);
+        panelProductos.setBounds(0, 0, 636, 369);
         panelProductos.setBackground(Color.DARK_GRAY);
         panelProveedores = new PanelProveedores();
 
@@ -138,7 +138,7 @@ public class Dashboard extends JFrame {
         JPanel panelMainContent = new JPanel();
         panelMainContent.setBorder(new LineBorder(new Color(128, 128, 128), 1, true));
         panelMainContent.setBackground(Color.DARK_GRAY);
-        panelMainContent.setBounds(186, 59, 608, 369);
+        panelMainContent.setBounds(186, 59, 636, 369);
         contentPane.add(panelMainContent);
         panelMainContent.setLayout(null);
         
@@ -164,28 +164,27 @@ public class Dashboard extends JFrame {
         panel_CERRAR.add(lblNewLabel_3);
         lblNewLabel_3.setIcon(new ImageIcon(Dashboard.class.getResource("/sistema/images/salida (2).png")));
         
-        JLabel lblNewLabel_5 = new JLabel("X");
-        lblNewLabel_5.setBounds(810, 11, 12, 30);
-        contentPane.add(lblNewLabel_5);
+        JPanel panel = new JPanel();
+        panel.setBorder(new LineBorder(new Color(128, 128, 128), 1, true));
+        panel.setBackground(Color.DARK_GRAY);
+        panel.setBounds(0, 0, 841, 41);
+        contentPane.add(panel);
+        
+        JLabel lblNewLabel_8 = new JLabel("                                                         SISTEMA DE INVENTARIO - TEEMO");
+        panel.add(lblNewLabel_8);
+        lblNewLabel_8.setFont(new Font("Tahoma", Font.PLAIN, 17));
+        lblNewLabel_8.setForeground(Color.WHITE);
+        
+        JLabel lblNewLabel_5 = new JLabel("                                   X");
+        panel.add(lblNewLabel_5);
         lblNewLabel_5.addMouseListener(new MouseAdapter() {
         	@Override
         	public void mouseExited(MouseEvent e) {
         		System.exit(ABORT);
         	}
         });
-        lblNewLabel_5.setFont(new Font("Tahoma", Font.PLAIN, 20));
+        lblNewLabel_5.setFont(new Font("Tahoma", Font.PLAIN, 21));
         lblNewLabel_5.setForeground(Color.GRAY);
-        
-        JPanel panel = new JPanel();
-        panel.setBorder(new LineBorder(new Color(128, 128, 128), 1, true));
-        panel.setBackground(Color.DARK_GRAY);
-        panel.setBounds(10, 11, 784, 30);
-        contentPane.add(panel);
-        
-        JLabel lblNewLabel_8 = new JLabel("                SISTEMA DE INVENTARIO - TEEMO");
-        panel.add(lblNewLabel_8);
-        lblNewLabel_8.setFont(new Font("Tahoma", Font.PLAIN, 17));
-        lblNewLabel_8.setForeground(Color.WHITE);
 	
     }
     
