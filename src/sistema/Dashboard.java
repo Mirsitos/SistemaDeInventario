@@ -16,12 +16,14 @@ import javax.swing.ImageIcon;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.Label;
+import javax.swing.JButton;
+import java.awt.Toolkit;
 
 public class Dashboard extends JFrame {
 
     private JPanel contentPane;
     private PanelProductos panelProductos;
-    private PanelProveedores panelProveedores;
+    private PanelProveedores panelProveedores;/*El panel proveedores es en realidad el panel de agregar productos*/
     
 
     public static void main(String[] args) {
@@ -39,27 +41,22 @@ public class Dashboard extends JFrame {
     }
 
     public Dashboard() {
+    	setAlwaysOnTop(true);
+    	setIconImage(Toolkit.getDefaultToolkit().getImage(Dashboard.class.getResource("/sistema/images/teemo_icon_by_bobbelebien_db0cqmg.png")));
         setBackground(new Color(105, 105, 105));
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setBounds(100, 100, 833, 464);
+        setBounds(100, 100, 838, 462);
 
         contentPane = new JPanel();
         contentPane.setBackground(Color.BLACK);
-        contentPane.setBorder(new LineBorder(Color.GRAY, 1, true));
+        contentPane.setBorder(new LineBorder(new Color(128, 128, 128)));
         contentPane.setLayout(null);
         setContentPane(contentPane);
         
         panelProductos = new PanelProductos();
+        panelProductos.setBounds(0, 0, 608, 369);
         panelProductos.setBackground(Color.DARK_GRAY);
         panelProveedores = new PanelProveedores();
-       /*panelProductos.setBounds(310, 6, 10, 10);*/
-        
-
-        JPanel panel = new JPanel();
-        panel.setBorder(new LineBorder(new Color(128, 128, 128), 1, true));
-        panel.setBackground(Color.DARK_GRAY);
-        panel.setBounds(10, 11, 784, 30);
-        contentPane.add(panel);
 
         JPanel panel_productos = new JPanel();
         panel_productos.addMouseListener(new PanelButtonMouseAdapter(panel_productos) {
@@ -71,10 +68,12 @@ public class Dashboard extends JFrame {
         });
         panel_productos.setBorder(new LineBorder(new Color(128, 128, 128), 1, true));
         panel_productos.setBackground(Color.DARK_GRAY);
-        panel_productos.setBounds(10, 163, 137, 30);
+        panel_productos.setBounds(10, 191, 163, 42);
         contentPane.add(panel_productos);
         
-        JLabel lblNewLabel = new JLabel("PRODUCTOS");
+        JLabel lblNewLabel = new JLabel("AGREGAR PRODUCTOS");
+        lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 9));
+        lblNewLabel.setIcon(new ImageIcon(Dashboard.class.getResource("/sistema/images/carrito-de-compras.png")));
         lblNewLabel.setForeground(Color.WHITE);
         panel_productos.add(lblNewLabel);
         
@@ -88,39 +87,58 @@ public class Dashboard extends JFrame {
         });
         panel_proveedores.setBorder(new LineBorder(new Color(128, 128, 128), 1, true));
         panel_proveedores.setBackground(Color.DARK_GRAY);
-        panel_proveedores.setBounds(10, 192, 137, 30);
+        panel_proveedores.setBounds(10, 230, 163, 42);
         contentPane.add(panel_proveedores);
         
-        JLabel lblNewLabel_1 = new JLabel("PROVEEDORES");
-        lblNewLabel_1.setForeground(Color.WHITE);
+        JLabel lblNewLabel_1 = new JLabel("GESTIONAR PRODUCTOS");
         panel_proveedores.add(lblNewLabel_1);
+        lblNewLabel_1.setIcon(new ImageIcon(Dashboard.class.getResource("/sistema/images/gestion-de-productos.png")));
+        lblNewLabel_1.setFont(new Font("Tahoma", Font.PLAIN, 11));
+        lblNewLabel_1.setForeground(Color.WHITE);
+        
+        JPanel panel_proveedores_1 = new JPanel();
+        panel_proveedores_1.addMouseListener(new PanelButtonMouseAdapter(panel_proveedores_1));
+        panel_proveedores_1.setBorder(new LineBorder(new Color(128, 128, 128), 1, true));
+        panel_proveedores_1.setBackground(Color.DARK_GRAY);
+        panel_proveedores_1.setBounds(10, 270, 163, 42);
+        contentPane.add(panel_proveedores_1);
+        
+        JLabel lblNewLabel_2 = new JLabel("PROVEEDORES");
+        panel_proveedores_1.add(lblNewLabel_2);
+        lblNewLabel_2.setFont(new Font("Tahoma", Font.PLAIN, 14));
+        lblNewLabel_2.setIcon(new ImageIcon(Dashboard.class.getResource("/sistema/images/fabrica.png")));
+        lblNewLabel_2.setForeground(Color.WHITE);
         
         JPanel panel_clientes = new JPanel();
+        panel_clientes.addMouseListener(new PanelButtonMouseAdapter(panel_clientes));
         panel_clientes.setBorder(new LineBorder(new Color(128, 128, 128), 1, true));
         panel_clientes.setBackground(Color.DARK_GRAY);
-        panel_clientes.setBounds(10, 220, 137, 30);
+        panel_clientes.setBounds(10, 309, 163, 42);
         contentPane.add(panel_clientes);
         
-        JLabel lblNewLabel_2 = new JLabel("CLIENTES");
-        lblNewLabel_2.setForeground(Color.WHITE);
-        panel_clientes.add(lblNewLabel_2);
+        JLabel lblNewLabel_4 = new JLabel("CLIENTES\r\n");
+        lblNewLabel_4.setFont(new Font("Tahoma", Font.PLAIN, 14));
+        lblNewLabel_4.setIcon(new ImageIcon(Dashboard.class.getResource("/sistema/images/personas (1).png")));
+        lblNewLabel_4.setForeground(Color.WHITE);
+        panel_clientes.add(lblNewLabel_4);
         
-        JPanel panel_inventario = new JPanel();
-        panel_inventario.setBorder(new LineBorder(new Color(128, 128, 128), 1, true));
-        panel_inventario.setBackground(Color.DARK_GRAY);
-        panel_inventario.setBounds(10, 247, 137, 30);
-        contentPane.add(panel_inventario);
+        JPanel panel_GestionarClientes = new JPanel();
+        panel_GestionarClientes.addMouseListener(new PanelButtonMouseAdapter(panel_GestionarClientes));
+        panel_GestionarClientes.setBorder(new LineBorder(new Color(128, 128, 128), 1, true));
+        panel_GestionarClientes.setBackground(Color.DARK_GRAY);
+        panel_GestionarClientes.setBounds(10, 346, 163, 42);
+        contentPane.add(panel_GestionarClientes);
         
-        JPanel panel_salidas = new JPanel();
-        panel_salidas.setBorder(new LineBorder(new Color(128, 128, 128), 1, true));
-        panel_salidas.setBackground(Color.DARK_GRAY);
-        panel_salidas.setBounds(10, 276, 137, 30);
-        contentPane.add(panel_salidas);
+        JLabel lblNewLabel_7 = new JLabel("GESTIONAR CLIENTES\r\n");
+        panel_GestionarClientes.add(lblNewLabel_7);
+        lblNewLabel_7.setForeground(Color.WHITE);
+        lblNewLabel_7.setFont(new Font("Tahoma", Font.PLAIN, 11));
+        lblNewLabel_7.setIcon(new ImageIcon(Dashboard.class.getResource("/sistema/images/servicios-sociales.png")));
         
         JPanel panelMainContent = new JPanel();
         panelMainContent.setBorder(new LineBorder(new Color(128, 128, 128), 1, true));
         panelMainContent.setBackground(Color.DARK_GRAY);
-        panelMainContent.setBounds(164, 59, 630, 388);
+        panelMainContent.setBounds(186, 59, 608, 369);
         contentPane.add(panelMainContent);
         panelMainContent.setLayout(null);
         
@@ -128,7 +146,27 @@ public class Dashboard extends JFrame {
         
         menuClicked(panelProductos);
         
+        JLabel lblNewLabel_6 = new JLabel("New label");
+        lblNewLabel_6.setIcon(new ImageIcon(Dashboard.class.getResource("/sistema/images/gestionar.png")));
+        lblNewLabel_6.setBounds(30, 52, 127, 128);
+        contentPane.add(lblNewLabel_6);
+        
+        JPanel panel_CERRAR = new JPanel();
+        panel_CERRAR.addMouseListener(new PanelButtonMouseAdapter(panel_CERRAR));
+        panel_CERRAR.setBorder(new LineBorder(Color.GRAY, 1, true));
+        panel_CERRAR.setBackground(Color.DARK_GRAY);
+        panel_CERRAR.setBounds(10, 384, 163, 44);
+        contentPane.add(panel_CERRAR);
+        
+        JLabel lblNewLabel_3 = new JLabel("CERRAR SESIÓN\r\n");
+        lblNewLabel_3.setForeground(Color.WHITE);
+        lblNewLabel_3.setFont(new Font("Tahoma", Font.PLAIN, 11));
+        panel_CERRAR.add(lblNewLabel_3);
+        lblNewLabel_3.setIcon(new ImageIcon(Dashboard.class.getResource("/sistema/images/salida (2).png")));
+        
         JLabel lblNewLabel_5 = new JLabel("X");
+        lblNewLabel_5.setBounds(810, 11, 12, 30);
+        contentPane.add(lblNewLabel_5);
         lblNewLabel_5.addMouseListener(new MouseAdapter() {
         	@Override
         	public void mouseExited(MouseEvent e) {
@@ -137,19 +175,17 @@ public class Dashboard extends JFrame {
         });
         lblNewLabel_5.setFont(new Font("Tahoma", Font.PLAIN, 20));
         lblNewLabel_5.setForeground(Color.GRAY);
-        lblNewLabel_5.setBounds(804, 11, 46, 30);
-        contentPane.add(lblNewLabel_5);
         
-        JLabel lblNewLabel_6 = new JLabel("New label");
-        lblNewLabel_6.setIcon(new ImageIcon(Dashboard.class.getResource("/sistema/images/User icon 2.png")));
-        lblNewLabel_6.setBounds(10, 52, 137, 100);
-        contentPane.add(lblNewLabel_6);
+        JPanel panel = new JPanel();
+        panel.setBorder(new LineBorder(new Color(128, 128, 128), 1, true));
+        panel.setBackground(Color.DARK_GRAY);
+        panel.setBounds(10, 11, 784, 30);
+        contentPane.add(panel);
         
-        JPanel panel_3 = new JPanel();
-        panel_3.setBorder(new LineBorder(Color.GRAY, 1, true));
-        panel_3.setBackground(Color.DARK_GRAY);
-        panel_3.setBounds(10, 305, 137, 142);
-        contentPane.add(panel_3);
+        JLabel lblNewLabel_8 = new JLabel("                SISTEMA DE INVENTARIO - TEEMO");
+        panel.add(lblNewLabel_8);
+        lblNewLabel_8.setFont(new Font("Tahoma", Font.PLAIN, 17));
+        lblNewLabel_8.setForeground(Color.WHITE);
 	
     }
     
