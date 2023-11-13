@@ -19,10 +19,6 @@ public class PanelProveedores extends JPanel {
 		setBackground(Color.DARK_GRAY);
 		setBounds(0, 0, 630,388);
 		setLayout(null);
-		
-		JButton btnNewButton = new JButton("New button");
-		btnNewButton.setBounds(245, 180, 89, 23);
-		add(btnNewButton);
 		setVisible(true);
 	}
 
