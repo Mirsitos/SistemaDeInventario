@@ -18,6 +18,8 @@ import java.awt.event.MouseEvent;
 import java.awt.Label;
 import javax.swing.JButton;
 import java.awt.Toolkit;
+import javax.swing.JSeparator;
+import javax.swing.JSlider;
 
 public class Dashboard extends JFrame {
 
@@ -77,6 +79,7 @@ public class Dashboard extends JFrame {
         lblNewLabel.setForeground(Color.WHITE);
         panel_productos.add(lblNewLabel);
         
+        
         JPanel panel_proveedores = new JPanel();
         panel_proveedores.addMouseListener(new PanelButtonMouseAdapter(panel_proveedores) {
         	@Override
@@ -85,10 +88,13 @@ public class Dashboard extends JFrame {
         	}
         	
         });
+        
+      
         panel_proveedores.setBorder(new LineBorder(new Color(128, 128, 128), 1, true));
         panel_proveedores.setBackground(Color.DARK_GRAY);
         panel_proveedores.setBounds(10, 230, 163, 42);
         contentPane.add(panel_proveedores);
+        
         
         JLabel lblNewLabel_1 = new JLabel("GESTIONAR PRODUCTOS");
         panel_proveedores.add(lblNewLabel_1);
@@ -146,6 +152,14 @@ public class Dashboard extends JFrame {
         
         menuClicked(panelProductos);
         
+        JSeparator separator = new JSeparator();
+        separator.setBounds(43, 24, 180, 2);
+        panelProductos.add(separator);
+        
+        JSeparator separator_1 = new JSeparator();
+        separator_1.setBounds(374, 24, 180, 2);
+        panelProductos.add(separator_1);
+        
         JLabel lblNewLabel_6 = new JLabel("New label");
         lblNewLabel_6.setIcon(new ImageIcon(Dashboard.class.getResource("/sistema/images/gestionar.png")));
         lblNewLabel_6.setBounds(30, 52, 127, 128);
@@ -184,7 +198,7 @@ public class Dashboard extends JFrame {
         	}
         });
         lblNewLabel_5.setFont(new Font("Tahoma", Font.PLAIN, 21));
-        lblNewLabel_5.setForeground(Color.GRAY);
+        lblNewLabel_5.setForeground(Color.LIGHT_GRAY);
 	
     }
     
