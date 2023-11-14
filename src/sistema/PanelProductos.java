@@ -4,23 +4,46 @@ import javax.swing.JPanel;
 import java.awt.Color;
 import javax.swing.JButton;
 import javax.swing.border.LineBorder;
-import javax.swing.UIManager;
 import javax.swing.JLabel;
 import java.awt.Font;
 import javax.swing.JTextField;
 import javax.swing.border.MatteBorder;
-import javax.swing.JSeparator;
+import javax.swing.JOptionPane;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 
 public class PanelProductos extends JPanel {
-	private JTextField textField;
-	private JTextField textField_1;
-	private JTextField textField_2;
-	private JTextField textField_3;
-	private JTextField textField_4;
+    private JTextField textField;
+    private JTextField textField_1;
+    private JTextField textField_2;
+    private JTextField textField_3;
+    private JTextField textField_4;
 
-	/**
-	 * Create the panel.
-	 */
+    private void guardarProducto() {
+        Connection conexion = null;
+        try {
+            conexion = ConexionBD.obtenerConexion(); 
+            String query = "INSERT INTO productos (nombre, codigo, cantidad, descripcion, fecha_llegada) VALUES (?, ?, ?, ?, ?)";
+            try (PreparedStatement preparedStatement = conexion.prepareStatement(query)) {
+                preparedStatement.setString(1, textField.getText());
+                preparedStatement.setString(2, textField_1.getText());
+                preparedStatement.setInt(3, Integer.parseInt(textField_2.getText()));
+                preparedStatement.setString(4, textField_3.getText());
+                preparedStatement.setDate(5, java.sql.Date.valueOf(textField_4.getText()));
+
+                preparedStatement.executeUpdate();
+                JOptionPane.showMessageDialog(null, "Producto guardado exitosamente.");
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+            JOptionPane.showMessageDialog(null, "Error al guardar el producto.");
+        } finally {
+            ConexionBD.cerrarConexion(conexion);
+        }
+    }
+    
 	public PanelProductos() {
 		setBorder(new LineBorder(Color.GRAY));
 		setBackground(Color.DARK_GRAY);
@@ -122,4 +145,5 @@ public class PanelProductos extends JPanel {
 		add(textField_4);
 		setVisible(true);
 	}
+	
 }
