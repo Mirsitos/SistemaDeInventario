@@ -1,4 +1,5 @@
 package sistema;
+import Metodos_SQL.ConexionBD;
 
 import javax.swing.JPanel;
 import javax.swing.JTextField;
@@ -13,6 +14,9 @@ import javax.swing.JLabel;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import Metodos_SQL.ConexionBD;
+import Metodos_SQL.ConexionBD;
+import Metodos_SQL.ConexionBD;
 
 public class PanelProveedores extends JPanel {
 
@@ -109,7 +113,7 @@ public class PanelProveedores extends JPanel {
     private void guardarProveedor() {
         Connection conexion = null;
         try {
-            conexion = ConexionBD.obtenerConexion();
+            conexion = ConexionBD.conectar();
             String query = "INSERT INTO proveedores (nombre, xxxx, xxxxx) VALUES (?, ?, ?)";
             try (PreparedStatement preparedStatement = conexion.prepareStatement(query)) {
                 preparedStatement.setString(1, textField.getText());

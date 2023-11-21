@@ -116,7 +116,7 @@ public class PanelClientes extends JPanel {
     private void guardarCliente() {
         Connection conexion = null;
         try {
-            conexion = ConexionBD.obtenerConexion();
+            conexion = ConexionBD.conectar();
             String query = "INSERT INTO clientes (nombre, ruc, ci, direccion) VALUES (?, ?, ?, ?)";
             try (PreparedStatement preparedStatement = conexion.prepareStatement(query)) {
                 preparedStatement.setString(1, textFieldNombre.getText());

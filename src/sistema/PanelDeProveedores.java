@@ -115,7 +115,7 @@ public class PanelDeProveedores extends JPanel {
         } catch (SQLException ex) {
             ex.printStackTrace();
             System.out.println("Error al guardar el proveedor.");
-            // Puedes mostrar un mensaje de error en un cuadro de diálogo o en otro componente de la interfaz.
+           
         }
     }
 }
