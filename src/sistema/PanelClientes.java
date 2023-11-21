@@ -8,6 +8,9 @@ import java.awt.Font;
 
 import javax.swing.border.LineBorder;
 import javax.swing.border.MatteBorder;
+
+import Metodos_SQL.ConexionBD;
+
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import java.sql.Connection;

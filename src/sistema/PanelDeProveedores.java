@@ -5,6 +5,9 @@ import javax.swing.border.LineBorder;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 import javax.swing.border.MatteBorder;
+
+import Metodos_SQL.ConexionBD;
+
 import java.awt.Color;
 import java.awt.Font;
 import javax.swing.JButton;
@@ -17,7 +20,6 @@ public class PanelDeProveedores extends JPanel {
     private JTextField textField;
     private JTextField textField_1;
     private JTextField textField_2;
-    private JTextField textField_3;
     private JTextField textField_4;
 
     public PanelDeProveedores() {
@@ -101,22 +103,20 @@ public class PanelDeProveedores extends JPanel {
     }
 
     private void guardarProveedor() {
-        Connection conexion = null;
-        try {
-            conexion = ConexionBD.obtenerConexion();
-            String query = "INSERT INTO proveedores (empresa, ci, ruc) VALUES (?, ?, ?)";
-            try (PreparedStatement preparedStatement = conexion.prepareStatement(query)) {
-                preparedStatement.setString(1, textField.getText());
-                preparedStatement.setString(2, textField_1.getText());
-                preparedStatement.setString(3, textField_2.getText());
-                preparedStatement.executeUpdate();
-                System.out.println("Proveedor guardado exitosamente.");
-            }
+        try (
+            Connection conexion = ConexionBD.conectar();
+            PreparedStatement preparedStatement = conexion.prepareStatement("INSERT INTO Proveedores (NombreEmpresa, CI, RUC) VALUES (?, ?, ?)")
+        ) {
+            preparedStatement.setString(1, textField.getText());
+            preparedStatement.setString(2, textField_1.getText());
+            preparedStatement.setString(3, textField_2.getText());
+            preparedStatement.executeUpdate();
+            System.out.println("Proveedor guardado exitosamente.");
         } catch (SQLException ex) {
             ex.printStackTrace();
             System.out.println("Error al guardar el proveedor.");
-        } finally {
-            ConexionBD.cerrarConexion(conexion);
+            // Puedes mostrar un mensaje de error en un cuadro de diálogo o en otro componente de la interfaz.
         }
     }
 }
+

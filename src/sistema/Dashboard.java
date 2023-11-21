@@ -47,7 +47,7 @@ public class Dashboard extends JFrame {
         setIconImage(Toolkit.getDefaultToolkit().getImage(Dashboard.class.getResource("/sistema/images/teemo_icon_by_bobbelebien_db0cqmg.png")));
         setBackground(new Color(105, 105, 105));
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setBounds(100, 100, 838, 452);
+        setBounds(100, 100, 872, 452);
 
         contentPane = new JPanel();
         contentPane.setBackground(Color.BLACK);
@@ -55,10 +55,10 @@ public class Dashboard extends JFrame {
         contentPane.setLayout(null);
         setContentPane(contentPane);
 
-        JLabel lblTitle = new JLabel("                                                         SISTEMA DE INVENTARIO - TEEMO");
+        JLabel lblTitle = new JLabel("                                                                 SISTEMA DE INVENTARIO - TEEMO");
         lblTitle.setFont(new Font("Tahoma", Font.PLAIN, 17));
         lblTitle.setForeground(Color.WHITE);
-        lblTitle.setBounds(0, 0, 838, 41);
+        lblTitle.setBounds(0, 0, 836, 41);
         contentPane.add(lblTitle);
 
         lblTitle.addMouseListener(new MouseAdapter() {
@@ -69,18 +69,9 @@ public class Dashboard extends JFrame {
             }
         });
 
-        JButton closeButton = new JButton("Cerrar");
-        closeButton.setFont(new Font("Tahoma", Font.PLAIN, 14));
-        closeButton.setForeground(Color.WHITE);
-        closeButton.setBackground(Color.RED);
-        closeButton.setFocusPainted(false);
-
-        closeButton.addActionListener(e -> {
-            dispose();
-        });
-
-        closeButton.setBounds(700, 0, 80, 30);
-        contentPane.add(closeButton);
+        
+        
+        
 
         lblTitle.addMouseMotionListener(new MouseAdapter() {
             @Override
@@ -92,6 +83,9 @@ public class Dashboard extends JFrame {
             }
         });
 
+        
+        
+        
         panelProductos = new PanelProductos();
         panelProductos.setBounds(0, 0, 636, 369);
         panelProductos.setBackground(Color.DARK_GRAY);
@@ -194,28 +188,28 @@ public class Dashboard extends JFrame {
         JPanel panelMainContent = new JPanel();
         panelMainContent.setBorder(new LineBorder(new Color(128, 128, 128), 1, true));
         panelMainContent.setBackground(Color.DARK_GRAY);
-        panelMainContent.setBounds(186, 59, 636, 369);
+        panelMainContent.setBounds(186, 59, 672, 369);
         contentPane.add(panelMainContent);
         panelMainContent.setLayout(null);
 
         panelProductos = new PanelProductos();
-        panelProductos.setBounds(0, 0, 636, 369);
+        panelProductos.setBounds(0, 0, 672, 369);
         panelMainContent.add(panelProductos);
 
         panelProveedores = new PanelProveedores();
-        panelProveedores.setBounds(0, 0, 636, 369);
+        panelProveedores.setBounds(0, 0, 672, 369);
         panelMainContent.add(panelProveedores);
 
         panelDeproveedores = new PanelDeProveedores();
-        panelDeproveedores.setBounds(0, 0, 636, 369);
+        panelDeproveedores.setBounds(0, 0, 672, 369);
         panelMainContent.add(panelDeproveedores);
 
         panelClientes = new PanelClientes(); // Agregar la creación del panelClientes
-        panelClientes.setBounds(0, 0, 636, 369);
+        panelClientes.setBounds(0, 0, 672, 369);
         panelMainContent.add(panelClientes);
 
         gestionarCliente = new GestionarCliente(); // Agregar la creación del GestionarCliente
-        gestionarCliente.setBounds(0, 0, 636, 369);
+        gestionarCliente.setBounds(0, 0, 672, 369);
         panelMainContent.add(gestionarCliente);
 
         menuClicked(panelClientes);
@@ -232,9 +226,22 @@ public class Dashboard extends JFrame {
         lblNewLabel_6.setIcon(new ImageIcon(Dashboard.class.getResource("/sistema/images/gestionar.png")));
         lblNewLabel_6.setBounds(30, 52, 127, 128);
         contentPane.add(lblNewLabel_6);
+        
+        //Cerrar sesión
 
         JPanel panel_CERRAR = new JPanel();
         panel_CERRAR.addMouseListener(new PanelButtonMouseAdapter(panel_CERRAR));
+        panel_CERRAR.addMouseListener(new MouseAdapter() {
+        	@Override
+        	public void mouseClicked(MouseEvent e) {
+        		Login FRAME= new Login();
+       		 	FRAME.setUndecorated(true);
+                FRAME.setVisible(true);
+                dispose();
+     
+        	}
+
+        });
         panel_CERRAR.setBorder(new LineBorder(Color.GRAY, 1, true));
         panel_CERRAR.setBackground(Color.DARK_GRAY);
         panel_CERRAR.setBounds(10, 384, 163, 44);
@@ -249,8 +256,22 @@ public class Dashboard extends JFrame {
         JPanel panel = new JPanel();
         panel.setBorder(new LineBorder(new Color(128, 128, 128), 1, true));
         panel.setBackground(Color.DARK_GRAY);
-        panel.setBounds(0, 0, 841, 41);
+        panel.setBounds(0, 0, 878, 41);
         contentPane.add(panel);
+        
+        //Para cerrar sistema
+        
+        JLabel lblNewLabel_5 = new JLabel("                                                                                                                     X");
+        panel.add(lblNewLabel_5);
+        lblNewLabel_5.addMouseListener(new MouseAdapter() {
+        	@Override
+        	public void mouseClicked(MouseEvent e) {
+        		System.exit(ABORT);
+        	}
+        });
+        lblNewLabel_5.setForeground(Color.LIGHT_GRAY);
+        lblNewLabel_5.setFont(new Font("Tahoma", Font.PLAIN, 23));
+        panel.add(lblNewLabel_5);
     }
 
     public void menuClicked(JPanel panel) {

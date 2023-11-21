@@ -24,4 +24,9 @@ public class ConexionBD {
 		}
 		return conexion;
 	}
+
+	public static void cerrarConexion(Connection conexion) {
+		// TODO Auto-generated method stub
+		
+	}
 }
