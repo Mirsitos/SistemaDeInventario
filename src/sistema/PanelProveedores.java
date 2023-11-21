@@ -17,6 +17,8 @@ import java.sql.SQLException;
 import Metodos_SQL.ConexionBD;
 import Metodos_SQL.ConexionBD;
 import Metodos_SQL.ConexionBD;
+import javax.swing.JTable;
+import javax.swing.JSeparator;
 
 public class PanelProveedores extends JPanel {
 
@@ -24,7 +26,7 @@ public class PanelProveedores extends JPanel {
     private JTextField textField_1;
     private JTextField textField_2;
     private JTextField textField_3;
-    private JTextField textField_4;
+    private JTable table;
 
     public PanelProveedores() {
         setBorder(new LineBorder(Color.LIGHT_GRAY));
@@ -34,7 +36,7 @@ public class PanelProveedores extends JPanel {
         JLabel lblNewLabel = new JLabel("GESTION DE PRODUCTOS");
         lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 15));
         lblNewLabel.setForeground(Color.WHITE);
-        lblNewLabel.setBounds(234, 11, 139, 14);
+        lblNewLabel.setBounds(234, 11, 188, 14);
         add(lblNewLabel);
 
         JLabel lblNewLabel_1 = new JLabel("Ingrese el nombre:");
@@ -43,17 +45,11 @@ public class PanelProveedores extends JPanel {
         lblNewLabel_1.setBounds(28, 62, 120, 14);
         add(lblNewLabel_1);
 
-        JLabel lblNewLabel_1_1 = new JLabel("xxxx:");
+        JLabel lblNewLabel_1_1 = new JLabel("Código:");
         lblNewLabel_1_1.setForeground(Color.WHITE);
         lblNewLabel_1_1.setFont(new Font("Tahoma", Font.PLAIN, 13));
         lblNewLabel_1_1.setBounds(92, 99, 120, 14);
         add(lblNewLabel_1_1);
-
-        JLabel lblNewLabel_1_2 = new JLabel("xxxxx:");
-        lblNewLabel_1_2.setForeground(Color.WHITE);
-        lblNewLabel_1_2.setFont(new Font("Tahoma", Font.PLAIN, 13));
-        lblNewLabel_1_2.setBounds(134, 138, 120, 14);
-        add(lblNewLabel_1_2);
 
         textField = new JTextField();
         textField.setCaretColor(Color.WHITE);
@@ -70,7 +66,7 @@ public class PanelProveedores extends JPanel {
         textField_1.setForeground(Color.WHITE);
         textField_1.setBackground(Color.DARK_GRAY);
         textField_1.setColumns(10);
-        textField_1.setBounds(198, 99, 175, 16);
+        textField_1.setBounds(158, 100, 175, 16);
         add(textField_1);
 
         textField_2 = new JTextField();
@@ -78,31 +74,49 @@ public class PanelProveedores extends JPanel {
         textField_2.setBorder(new MatteBorder(0, 0, 1, 0, (Color) Color.LIGHT_GRAY));
         textField_2.setBackground(Color.DARK_GRAY);
         textField_2.setColumns(10);
-        textField_2.setBounds(264, 136, 175, 16);
+        textField_2.setBounds(158, 139, 175, 16);
         add(textField_2);
 
-        JButton btnNewButton = new JButton("Guardar");
+        JButton btnNewButton = new JButton("Actualizar");
         btnNewButton.setBorder(new LineBorder(new Color(192, 192, 192), 3));
         btnNewButton.setForeground(Color.LIGHT_GRAY);
         btnNewButton.setBackground(Color.DARK_GRAY);
-        btnNewButton.setBounds(76, 281, 120, 23);
+        btnNewButton.setBounds(441, 59, 120, 23);
         add(btnNewButton);
 
         JButton btnLimpiar = new JButton("Limpiar");
         btnLimpiar.setForeground(Color.LIGHT_GRAY);
         btnLimpiar.setBackground(Color.DARK_GRAY);
         btnLimpiar.setBorder(new LineBorder(Color.LIGHT_GRAY, 3));
-        btnLimpiar.setBounds(455, 281, 120, 23);
+        btnLimpiar.setBounds(441, 135, 120, 23);
         add(btnLimpiar);
-
-        textField_4 = new JTextField();
-        textField_4.setCaretColor(Color.WHITE);
-        textField_4.setBorder(new MatteBorder(0, 0, 1, 0, (Color) Color.LIGHT_GRAY));
-        textField_4.setForeground(Color.WHITE);
-        textField_4.setBackground(Color.DARK_GRAY);
-        textField_4.setColumns(10);
-        textField_4.setBounds(411, 215, 175, 16);
-        add(textField_4);
+        
+        table = new JTable();
+        table.setBackground(Color.GRAY);
+        table.setBorder(new LineBorder(Color.LIGHT_GRAY, 2));
+        table.setBounds(30, 204, 605, 145);
+        add(table);
+        
+        JButton btnEliminar = new JButton("Eliminar");
+        btnEliminar.setForeground(Color.LIGHT_GRAY);
+        btnEliminar.setBorder(new LineBorder(new Color(192, 192, 192), 3));
+        btnEliminar.setBackground(Color.DARK_GRAY);
+        btnEliminar.setBounds(441, 96, 120, 23);
+        add(btnEliminar);
+        
+        JLabel lblNewLabel_1_1_1 = new JLabel("Fecha:");
+        lblNewLabel_1_1_1.setForeground(Color.WHITE);
+        lblNewLabel_1_1_1.setFont(new Font("Tahoma", Font.PLAIN, 13));
+        lblNewLabel_1_1_1.setBounds(92, 144, 59, 14);
+        add(lblNewLabel_1_1_1);
+        
+        JSeparator separator = new JSeparator();
+        separator.setBounds(28, 21, 200, 14);
+        add(separator);
+        
+        JSeparator separator_1 = new JSeparator();
+        separator_1.setBounds(420, 21, 200, 14);
+        add(separator_1);
 
       
         btnNewButton.addActionListener(e -> guardarProveedor());

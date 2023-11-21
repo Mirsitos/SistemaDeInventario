@@ -16,6 +16,7 @@ import javax.swing.JLabel;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import javax.swing.JSeparator;
 
 public class PanelClientes extends JPanel {
     private JTextField textFieldNombre;
@@ -31,31 +32,31 @@ public class PanelClientes extends JPanel {
         JLabel lblNewLabel = new JLabel("AGREGAR CLIENTE");
         lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 15));
         lblNewLabel.setForeground(Color.WHITE);
-        lblNewLabel.setBounds(234, 11, 139, 14);
+        lblNewLabel.setBounds(275, 11, 139, 14);
         add(lblNewLabel);
 
         JLabel lblNewLabel_1 = new JLabel("Ingrese el nombre:");
         lblNewLabel_1.setForeground(Color.WHITE);
         lblNewLabel_1.setFont(new Font("Tahoma", Font.PLAIN, 13));
-        lblNewLabel_1.setBounds(28, 62, 120, 14);
+        lblNewLabel_1.setBounds(133, 62, 120, 14);
         add(lblNewLabel_1);
 
         JLabel lblNewLabel_1_1 = new JLabel("RUC:");
         lblNewLabel_1_1.setForeground(Color.WHITE);
         lblNewLabel_1_1.setFont(new Font("Tahoma", Font.PLAIN, 13));
-        lblNewLabel_1_1.setBounds(92, 99, 120, 14);
+        lblNewLabel_1_1.setBounds(208, 99, 45, 14);
         add(lblNewLabel_1_1);
 
         JLabel lblNewLabel_1_2 = new JLabel("CI:");
         lblNewLabel_1_2.setForeground(Color.WHITE);
         lblNewLabel_1_2.setFont(new Font("Tahoma", Font.PLAIN, 13));
-        lblNewLabel_1_2.setBounds(134, 138, 120, 14);
+        lblNewLabel_1_2.setBounds(208, 142, 29, 14);
         add(lblNewLabel_1_2);
 
         JLabel lblDireccion = new JLabel("Direccion:");
         lblDireccion.setForeground(Color.WHITE);
         lblDireccion.setFont(new Font("Tahoma", Font.PLAIN, 13));
-        lblDireccion.setBounds(92, 175, 120, 14);
+        lblDireccion.setBounds(164, 178, 67, 14);
         add(lblDireccion);
 
         textFieldNombre = new JTextField();
@@ -63,7 +64,7 @@ public class PanelClientes extends JPanel {
         textFieldNombre.setBorder(new MatteBorder(0, 0, 1, 0, (Color) Color.LIGHT_GRAY));
         textFieldNombre.setForeground(Color.WHITE);
         textFieldNombre.setBackground(Color.DARK_GRAY);
-        textFieldNombre.setBounds(158, 62, 175, 16);
+        textFieldNombre.setBounds(275, 63, 175, 16);
         add(textFieldNombre);
         textFieldNombre.setColumns(10);
 
@@ -73,7 +74,7 @@ public class PanelClientes extends JPanel {
         textFieldRUC.setForeground(Color.WHITE);
         textFieldRUC.setBackground(Color.DARK_GRAY);
         textFieldRUC.setColumns(10);
-        textFieldRUC.setBounds(198, 99, 175, 16);
+        textFieldRUC.setBounds(275, 100, 175, 14);
         add(textFieldRUC);
 
         textFieldCI = new JTextField();
@@ -81,7 +82,7 @@ public class PanelClientes extends JPanel {
         textFieldCI.setBorder(new MatteBorder(0, 0, 1, 0, (Color) Color.LIGHT_GRAY));
         textFieldCI.setBackground(Color.DARK_GRAY);
         textFieldCI.setColumns(10);
-        textFieldCI.setBounds(264, 136, 175, 16);
+        textFieldCI.setBounds(275, 143, 175, 16);
         add(textFieldCI);
 
         textFieldDireccion = new JTextField();
@@ -90,7 +91,7 @@ public class PanelClientes extends JPanel {
         textFieldDireccion.setForeground(Color.WHITE);
         textFieldDireccion.setBackground(Color.DARK_GRAY);
         textFieldDireccion.setColumns(10);
-        textFieldDireccion.setBounds(198, 175, 175, 16);
+        textFieldDireccion.setBounds(275, 179, 175, 16);
         add(textFieldDireccion);
 
         JButton btnGuardar = new JButton("Guardar");
@@ -106,6 +107,14 @@ public class PanelClientes extends JPanel {
         btnLimpiar.setBorder(new LineBorder(Color.LIGHT_GRAY, 3));
         btnLimpiar.setBounds(455, 281, 120, 23);
         add(btnLimpiar);
+        
+        JSeparator separator = new JSeparator();
+        separator.setBounds(411, 23, 168, 2);
+        add(separator);
+        
+        JSeparator separator_1 = new JSeparator();
+        separator_1.setBounds(97, 23, 168, 2);
+        add(separator_1);
 
        
         btnGuardar.addActionListener(e -> guardarCliente());
